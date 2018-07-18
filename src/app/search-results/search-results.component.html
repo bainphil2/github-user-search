@@ -1,0 +1,19 @@
+<mat-expansion-panel *ngFor="let result of results">
+    <mat-expansion-panel-header>
+        <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' + result.avatar_url + ')'}"></div>
+        <mat-panel-title>
+            <a href="{{result.html_url}}">{{result.login}}</a>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <h3>{{result.login}}'s GitHub Repositories:</h3>
+    <mat-card *ngFor="let repo of result.repositories">
+        <mat-card-header>
+            <mat-card-title>
+                {{repo.name}}
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            {{repo.description}}
+        </mat-card-content>
+    </mat-card>
+</mat-expansion-panel>
